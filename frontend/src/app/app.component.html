@@ -1,0 +1,7 @@
+<div class="app-container">
+  <!-- Conditionally render navbar based on route -->
+  <app-navbar *ngIf="!isLoginPage"></app-navbar>
+  
+  <!-- Page content -->
+  <router-outlet></router-outlet>
+</div>

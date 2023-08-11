@@ -1,0 +1,6 @@
+.card-link {
+    text-decoration: none; /* Remove the default underline */
+    color: inherit; /* Inherit the text color from the parent */
+    cursor: pointer; /* Set cursor to pointer on hover */
+  }
+  

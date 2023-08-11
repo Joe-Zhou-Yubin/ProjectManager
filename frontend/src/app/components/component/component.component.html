@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"><br>
+            <a [routerLink]="'/home'" class="btn btn-primary">Back Home</a>
+        </div>
+        <div class="col-md-8 text-center"><br>
+            <h2>Component Details for {{ compNumber }}</h2>
+        </div>
+        <div class="col-md-2 text-right"><br>
+            <button class="btn btn-success" (click)="showCreateForm = true">Create Detail</button>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="showCreateForm">
+        <div class="card">
+            <div class="card-body">
+                <h4>Create New Detail</h4>
+                <div class="form-group">
+                    <label for="detTitle">Title</label>
+                    <input type="text" class="form-control" id="detTitle" [(ngModel)]="newDetailTitle">
+                </div>
+                <div class="form-group">
+                    <label for="detDetail">Detail</label>
+                    <textarea class="form-control" id="detDetail" rows="3" [(ngModel)]="newDetailDetail"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="priority">Priority</label>
+                    <select class="form-control" id="priority" [(ngModel)]="newDetailPriority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deadline">Deadline</label>
+                    <input type="date" class="form-control" id="deadline" [(ngModel)]="newDetailDeadline">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" [(ngModel)]="newDetailUsername">
+                </div>
+                <button type="button" class="btn btn-success" (click)="createDetail()">Create</button>
+                <button type="button" class="btn btn-secondary ml-2" (click)="cancelCreate()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Det Number</th>
+                <th>Title</th>
+                <th>Details</th>
+                <th>Priority</th>
+                <th>Deadline</th>
+                <th>User IC</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let detail of componentDetails">
+                <td>{{ detail.detNumber }}</td>
+                <td>{{ detail.detTitle }}</td>
+                <td>{{ detail.detDetail }}</td>
+                <td>{{ detail.priority }}</td>
+                <td>{{ detail.deadline }}</td>
+                <td>{{ detail.username }}</td>
+                <td>{{ detail.detStatus ? 'Complete' : 'Incomplete'}}</td>
+                <td>
+                    <button class="btn btn-success" *ngIf="!detail.detStatus" (click)="completeDetail(detail.detNumber)">Complete</button>
+                    <button class="btn btn-warning" *ngIf="detail.detStatus" (click)="incompleteDetail(detail.detNumber)">Incomplete</button>
+                    
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteDetail(detail.detNumber)">Delete</button>
+                </td>
+            </tr>
+        </tbody>        
+    </table>
+</div>

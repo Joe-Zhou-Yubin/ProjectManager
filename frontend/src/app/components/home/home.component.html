@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-10"><br/>
+        <h2>Projects</h2>
+      </div>
+      <div class="col-md-2 text-right"><br/>
+        <button class="btn btn-primary" (click)="toggleCreateForm()">Create Project</button>
+      </div>
+    </div>
+    <div *ngIf="showCreateForm" class="mt-3">
+      <div class="form-group">
+        <label for="projectTitle">Project Title</label>
+        <input type="text" class="form-control" id="projectTitle" [(ngModel)]="newProjectTitle">
+      </div>
+      <div class="form-group">
+        <label for="projectDescription">Project Description</label>
+        <textarea class="form-control" id="projectDescription" rows="3" [(ngModel)]="newProjectDescription"></textarea>
+      </div>
+      <button type="button" class="btn btn-success" (click)="createProject()">Save</button>
+      <button class="btn btn-secondary ml-2" (click)="toggleCreateForm()">Cancel</button>
+    </div>
+    <br/>
+    <div class="card-deck">
+        <div class="row">
+          <div class="col-md-6" *ngFor="let project of projects; let i = index;">
+            <a [routerLink]="'/project/' + project.projNumber" class="card-link">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="card-title">{{ project.projTitle }}</h5>
+                    <button *ngIf="canDeleteProject()" type="button" class="btn btn-danger" (click)="deleteProject(project.projNumber)">Delete</button>
+                  </div>
+                  <p class="card-text">Project Number: {{ project.projNumber }}</p>
+                  <p class="card-text">Project Detail: {{ project.projDetail }}</p>
+                  <p class="card-text">Status: {{ project.projStatus ? 'Complete' : 'Incomplete' }}</p>
+                  <div class="text-right">
+                    <button *ngIf="completeStatus(project)" type="button" class="btn btn-success" (click)="completeProject(project.projNumber)">Update Status Complete</button>
+                    <button *ngIf="incompleteStatus(project)" type="button" class="btn btn-warning ml-2" (click)="incompleteProject(project.projNumber)">Update Status Incomplete</button>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  

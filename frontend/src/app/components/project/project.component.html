@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 text-left"><br/>
+            <a [routerLink]="'/home'" class="btn btn-primary">Back Home</a>
+          </div>
+      <div class="col-md-8 text-center"><br/>
+        <h2>Components for Project {{ projNumber }}</h2>
+      </div>
+      <div class="col-md-2 text-right"><br/>
+        <button class="btn btn-success" (click)="toggleCreateComponentForm()">Create Component</button>
+      </div>
+    </div>
+    <br/>
+    <div *ngIf="showCreateComponentForm" class="card-deck">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Create Component</h5>
+              <div class="form-group">
+                <label for="compTitle">Component Title</label>
+                <input type="text" class="form-control" id="compTitle" [(ngModel)]="newCompTitle">
+              </div>
+              <div class="form-group">
+                <label for="compDetail">Component Detail</label>
+                <textarea class="form-control" id="compDetail" rows="3" [(ngModel)]="newCompDetail"></textarea>
+              </div>
+              <button class="btn btn-success" (click)="createComponent()">Create</button>
+              <button class="btn btn-secondary ml-2" (click)="toggleCreateComponentForm()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="card-deck">
+      <div class="row">
+        <div class="col-md-6" *ngFor="let component of components">
+          <a [routerLink]="'/component/' + component.compNumber" class="card-link">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ component.compTitle }}</h5>
+                <p class="card-text">Component Number: {{ component.compNumber }}</p>
+                <p class="card-text">Component Detail: {{ component.compDetail }}</p>
+                <button class="btn btn-danger" (click)="deleteComponent(component.compNumber)">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
