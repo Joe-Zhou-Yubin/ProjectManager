@@ -25,3 +25,33 @@ Project built using Springboot, Angular and MS SQL.
 <img src="https://github.com/Joe-Zhou-Yubin/ProjectManager/raw/main/screenshots/Leader_View.png" alt="Leader View Screenshot" width="600">
 
 ---
+
+##  Component Page
+<img src="https://github.com/Joe-Zhou-Yubin/ProjectManager/raw/main/screenshots/Component_Overview.png" alt="Component Page Screenshot" width="600">
+
+---
+
+##  Detail Page
+<img src="https://github.com/Joe-Zhou-Yubin/ProjectManager/raw/main/screenshots/Detail_Overview.png" alt="Detail Page Screenshot" width="600">
+
+---
+
+##  Create Project Page
+<img src="https://github.com/Joe-Zhou-Yubin/ProjectManager/raw/main/screenshots/Create_Project.png" alt="Create Project Page Screenshot" width="600">
+
+---
+
+##  Create Component Page
+<img src="https://github.com/Joe-Zhou-Yubin/ProjectManager/raw/main/screenshots/Create_Component.png" alt="Create Component Page Screenshot" width="600">
+
+---
+
+##  Create Detail Page
+<img src="https://github.com/Joe-Zhou-Yubin/ProjectManager/raw/main/screenshots/Create_Detail.png" alt="Create Detail Page Screenshot" width="600">
+
+---
+
+##  Create User Page
+<img src="https://github.com/Joe-Zhou-Yubin/ProjectManager/raw/main/screenshots/Create_User.png" alt="Create User Screenshot" width="600">
+
+---
